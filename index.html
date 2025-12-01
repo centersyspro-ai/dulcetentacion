@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulce Tentación | Pastelería Artesanal - Pasteles y Galletas Caseras</title>
+    <meta name="description" content="Pastelería Dulce Tentación. Pasteles, galletas y postres artesanales. Ingredientes de calidad y recetas tradicionales. Endulzamos tus momentos especiales.">
+    
+    <!-- Meta redes sociales -->
+    <meta property="og:title" content="Dulce Tentación | Pastelería Artesanal">
+    <meta property="og:description" content="Pasteles, galletas y postres artesanales. Ingredientes de calidad y recetas tradicionales.">
+    <meta property="og:image" content="assets/images/hero-pasteleria.jpg">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #F5F5F5;
+            --secondary: #8B4513;
+            --accent: #D4AF37;
+            --light: #E8E8E8;
+            --dark: #2C2C2C;
+            --text: #2C2C2C;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Header */
+        .header {
+            background: var(--primary);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: var(--secondary);
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(43, 27, 14, 0.6), rgba(43, 27, 14, 0.6)), 
+                        url('images/hero-pasteleria.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* Sections General */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .chef-info {
+            background: var(--primary);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent);
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: var(--dark);
+        }
+
+        /* Products Section */
+        .products {
+            background: var(--light);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            background: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-price {
+            color: var(--secondary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--primary);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            font-size: 60px;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+
+        /* Gallery */
+        .gallery {
+            background: var(--light);
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            padding: 0 20px;
+        }
+
+        .carousel-btn {
+            background: rgba(255,255,255,0.8);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--dark);
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* Map Section */
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            margin-top: 30px;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        .whatsapp-btn svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Popup */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .popup-overlay.active .popup {
+            transform: translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .carousel-item {
+                height: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-item {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🍰</div>
+                <div class="logo-text">Dulce Tentación</div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#testimonios">Testimonios</a></li>
+                    <li><a href="#galeria">Galería</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Dulce Tentación</h1>
+            <p>Pastelería artesanal con el sabor de siempre</p>
+            <a href="#productos" class="btn">Ver Nuestros Productos</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="section about">
+        <div class="container">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>15 Años Endulzando Momentos</h3>
+                    <p>En Dulce Tentación nos dedicamos a crear pasteles, galletas y postres artesanales con ingredientes de la más alta calidad. Cada receta guarda el sabor tradicional que nos caracteriza.</p>
+                    <p>Nuestro compromiso es endulzar tus momentos especiales con productos frescos, elaborados diariamente con dedicación y amor.</p>
+                    <div class="chef-info">
+                        <h4>Chef Ana Martínez</h4>
+                        <p>Pastelera profesional con más de 15 años de experiencia en repostería tradicional y moderna.</p>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div style="width:100%;height:300px;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--secondary)">
+                        <img src="images/pastelerianuestra.webp" alt="Nuestra pasteleria">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎂</div>
+                    <h3>Pasteles Personalizados</h3>
+                    <p>Creamos el pastel perfecto para tu celebración, adaptado a tus gustos y necesidades.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Entrega a Domicilio</h3>
+                    <p>Llevamos tus pedidos hasta la puerta de tu casa, manteniendo la frescura y calidad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Postres para Eventos</h3>
+                    <p>Mesas de postres completas para bodas, cumpleaños y celebraciones empresariales.</p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="section products">
+        <div class="container">
+            <h2 class="section-title">Nuestros Productos</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="images/paste-choco300x250.jpg" alt="Descripción de la imagen"  width="300" height="250">
+                    <div class="product-info">
+                        <h3>Pastel de Chocolate</h3>
+                        <p>Delicioso pastel de chocolate belga con relleno de ganache.</p>
+                        <div class="product-price">$380</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/paste-choco300x250.jpg" alt="Descripción de la imagen" width="300" height="250">
+                    <div class="product-info">
+                        <h3>Cupcakes Decorados</h3>
+                        <p>Variedad de sabores con decoraciones creativas y coloridas.</p>
+                        <div class="product-price">$35 c/u</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/paste-choco300x250.jpg" alt="Descripción de la imagen" width="300" height="250">
+                    <div class="product-info">
+                        <h3>Galletas de Mantequilla</h3>
+                        <p>Galletas crujientes con el auténtico sabor de la mantequilla.</p>
+                        <div class="product-price">$120 docena</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/paste-choco300x250.jpg" alt="Descripción de la imagen" width="300" height="250">
+                    <div class="product-info">
+                        <h3>Pay de Queso</h3>
+                        <p>Clásico pay de queso con base de galleta y frutos rojos.</p>
+                        <div class="product-price">$280</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="images/paste-choco300x250.jpg" alt="Descripción de la imagen" width="300" height="250">
+                    <div class="product-info">
+                        <h3>Flan Napolitano</h3>
+                        <p>Tradicional flan casero con caramelo y decorado con nuez.</p>
+                        <div class="product-price">$150</div>
+                    </div>  
+                </div>
+                <div class="product-card">
+                    <img src="images/paste-choco300x250.jpg" alt="Descripción de la imagen" width="300" height="250">
+                    <div class="product-info">
+                        <h3>Pastel de Zanahoria</h3>
+                        <p>Húmedo pastel de zanahoria con frosting de queso crema.</p>
+                        <div class="product-price">$320</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="section">
+        <div class="container">
+            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>El pastel de chocolate para el cumpleaños de mi hija fue increíble! Todos quedaron encantados con el sabor y la presentación.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Laura Sánchez</h4>
+                        <span>Cliente desde 2018</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Las galletas personalizadas para nuestra boda fueron el detalle perfecto. Los invitados no paraban de elogiarlas.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Carlos y Elena</h4>
+                        <span>Novios 2023</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Encargamos los postres para nuestro evento corporativo y fueron un éxito total. Calidad y servicio excepcionales.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <h4>Roberto Torres</h4>
+                        <span>Director de Marketing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="section gallery">
+        <div class="container">
+            <h2 class="section-title">Nuestra Galería</h2>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div style="width:100%;height:100%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--secondary)">
+                            <img src="images/galeria/galeria2.png" alt="Descripción de la imagen">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="width:100%;height:100%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--secondary)">
+                            <img src="images/galeria/galeria2.png" alt="Descripción de la imagen">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="width:100%;height:100%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--secondary)">
+                            <img src="images/galeria/galeria2.png" alt="Descripción de la imagen">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="width:100%;height:100%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--secondary)">
+                            <img src="images/galeria/galeria2.png" alt="Descripción de la imagen">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="width:100%;height:100%;background:var(--light);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--secondary)">
+                            <img src="images/galeria/galeria2.png" alt="Descripción de la imagen">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                   <button class="carousel-btn prev">‹</button>
+                   <button class="carousel-btn next">›</button>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- Contact Section -->
+    <section id="contacto" class="section">
+        <div class="container">
+            <h2 class="section-title">Visítanos</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3756.101536388628!2d-101.18892802603077!3d19.70830083182094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842d0e6d1f93ebcb%3A0x934421b73dbedd37!2sC.%205%20de%20Febrero%20444%2C%20Centro%20hist%C3%B3rico%20de%20Morelia%2C%2058130%20Juan%20Rodr%C3%ADguez%20Clara%2C%20Mich.!5e0!3m2!1ses!2smx!4v1764520712686!5m2!1ses!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Dulce Tentación</h3>
+                    <p>Calle 5 de febrero 334 Morelia, Mich.</p>
+                    <p>Tel: +52 728 123 4567</p>
+                    <p>Email: contacto@dulcetentacion.com</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Horarios</h3>
+                    <p>Lunes a Viernes: 8:00 AM - 8:00 PM</p>
+                    <p>Sábados: 9:00 AM - 6:00 PM</p>
+                    <p>Domingos: 10:00 AM - 3:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/524771234567" class="whatsapp-btn" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893c0-3.189-1.248-6.189-3.515-8.444"/>
+        </svg>
+    </a>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup">
+            <button class="popup-close" id="popupClose">&times;</button>
+            <div class="popup-content">
+                <h3>¡Promoción Especial!</h3>
+                <p>Este mes tenemos descuentos en:</p>
+                <ul>
+                    <li>15% en pasteles personalizados</li>
+                    <li>2x1 en galletas decoradas los martes</li>
+                    <li>Envío gratis en pedidos mayores a $500</li>
+                </ul>
+                <p>¡Aprovecha estas ofertas!</p>
+                <a href="https://wa.me/524771234567" class="btn" target="_blank">Solicitar Promoción</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Carrusel
+        document.addEventListener('DOMContentLoaded', function() {
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.carousel-btn.prev');
+            const nextBtn = document.querySelector('.carousel-btn.next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % carouselItems.length;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+                updateCarousel();
+            });
+
+            // Popup
+            const popupOverlay = document.getElementById('popupOverlay');
+            const popupClose = document.getElementById('popupClose');
+
+            setTimeout(function() {
+                popupOverlay.classList.add('active');
+            }, 10000);
+
+            popupClose.addEventListener('click', function() {
+                popupOverlay.classList.remove('active');
+            });
+
+            popupOverlay.addEventListener('click', function(e) {
+                if (e.target === popupOverlay) {
+                    popupOverlay.classList.remove('active');
+                }
+            });
+
+            // Smooth scroll para navegación
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
